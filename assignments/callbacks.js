@@ -93,8 +93,29 @@ contains2("asdasd", items, (item) => {console.log(`The value is ${item}`)})
 
 /* STRETCH PROBLEM */
 
+let names = ['Sara', 'Maria', 'Sophia', 'Sara', 'Sophia'] 
+
 function removeDuplicates(array, cb) {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
+  freeFromDuplicates = [];
+  for (let i = 0; i < array.length; i++) {
+    if (freeFromDuplicates.includes(array[i]) === false) {
+      freeFromDuplicates.push(array[i]);
+    }
+  }
+  return cb(freeFromDuplicates);
 }
+
+removeDuplicates(names, console.log);
+
+
+
+/// THE CODE BELOW IS FROM SHAUN ORPEN, HE SHARED AFTER WE PAIR PROGRAMMED 
+
+// cb(array.filter((item, index, array) => array.indexOf(item) === index));
+
+
+
+
