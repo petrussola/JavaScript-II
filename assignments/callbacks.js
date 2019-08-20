@@ -67,6 +67,9 @@ function multiplyNums(x, y, cb) {
 
 multiplyNums(10, 5, (result) => {console.log(`${result} is the result of the multiplication`)})
 
+
+// SOLUTION 1
+
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
@@ -79,6 +82,14 @@ function contains(item, list, cb) {
 }
 
 contains("yo-yo", items, (item) => {console.log(`The value is ${item}`)})
+
+// SOLUTION 2
+
+function contains2(item, list, cb) {
+  return cb(list.includes(item));
+}
+
+contains2("asdasd", items, (item) => {console.log(`The value is ${item}`)})
 
 /* STRETCH PROBLEM */
 
