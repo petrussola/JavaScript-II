@@ -99,4 +99,31 @@ console.log(topDonation);
 
 // Problem 2 - funds coming from public institutions (aka .gov emails)
 
+let publicFunds = [];
+publicFunds = runners.filter( item => {
+  return item.email.includes(".gov");
+});
+
+console.log(publicFunds);
+
 // Problem 3 - companies with donations above the average
+
+let average = 0;
+let totalDonations = 0;
+let numberDonations = 0;
+let generous = [];
+totalDonations = runners.reduce( (total, business) => {
+  return total += business.donation
+}, 0);
+numberDonations = runners.length;
+average = totalDonations / numberDonations;
+
+generous = runners.filter( item => {
+  return item.donation > average;
+});
+
+console.log(totalDonations);
+console.log(numberDonations);
+console.log(average);
+console.log(generous);
+
