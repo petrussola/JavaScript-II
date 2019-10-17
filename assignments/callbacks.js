@@ -41,29 +41,81 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
 function getLength(arr, cb) {
   // getLength passes the length of the array into the callback.
+  return cb(arr.length);
 }
+getLength(items, item => { console.log(`The lenght of the array is ${item}`) })
+
 
 function last(arr, cb) {
   // last passes the last item of the array into the callback.
+  return cb(arr[arr.length - 1]);
+
 }
+last(items, item => {console.log(`${item} is the last item of the array`)})
 
 function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
+  return cb(x + y);
 }
+
+sumNums(10, 5, (result) => {console.log(`${result} is the result of the sum`)})
 
 function multiplyNums(x, y, cb) {
   // multiplyNums multiplies two numbers and passes the result to the callback.
+  return cb(x * y);
 }
+
+multiplyNums(10, 5, (result) => {console.log(`${result} is the result of the multiplication`)})
+
+
+// SOLUTION 1
 
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
+  for (let i = 0; i < list.length; i++) {
+    if (list[i] === item) {
+      return cb(true)
+    }
+  }
+  return cb(false)
 }
 
+contains("yo-yo", items, (item) => {console.log(`The value is ${item}`)})
+
+// SOLUTION 2
+
+function contains2(item, list, cb) {
+  return cb(list.includes(item));
+}
+
+contains2("asdasd", items, (item) => {console.log(`The value is ${item}`)})
+
 /* STRETCH PROBLEM */
+
+let names = ['Sara', 'Maria', 'Sophia', 'Sara', 'Sophia'] 
 
 function removeDuplicates(array, cb) {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
+  freeFromDuplicates = [];
+  for (let i = 0; i < array.length; i++) {
+    if (freeFromDuplicates.includes(array[i]) === false) {
+      freeFromDuplicates.push(array[i]);
+    }
+  }
+  return cb(freeFromDuplicates);
 }
+
+removeDuplicates(names, console.log);
+
+
+
+/// THE CODE BELOW IS FROM SHAUN ORPEN, HE SHARED AFTER WE PAIR PROGRAMMED 
+
+// cb(array.filter((item, index, array) => array.indexOf(item) === index));
+
+
+
+
